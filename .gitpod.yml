@@ -1,6 +1,2 @@
 # The Docker image to run your workspace in. Defaults to gitpod/workspace-full
-image: workspace-dotnet:latest
-# Ports to expose on workspace startup (optional)
-ports:
-  - port: 8000
-    onOpen: open-preview
+image: workspace-dotnet-vnc:latest
