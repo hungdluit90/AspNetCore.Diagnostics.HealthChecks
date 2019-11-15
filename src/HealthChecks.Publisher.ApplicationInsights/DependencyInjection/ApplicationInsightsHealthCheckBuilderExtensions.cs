@@ -14,7 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </remarks>
         /// <param name="builder">The <see cref="IHealthChecksBuilder"/>.</param>
         /// <param name="instrumentationKey">Specified Application Insights instrumentation key. Optional. If <c>null</c> TelemetryConfiguration.Active is used.</param>
-        /// <param name="saveDetailedReport">Specifies if save an Application Insights event for each HealthCheck or just save one event with the global status for all the HealthChecks. Optional: If <c>true</c> saves an Application Insights event for each HealthCheck</c></param>
+        /// <param name="saveDetailedReport">Specifies if save an Application Insights event for each HealthCheck or just save one event with the global status for all the HealthChecks. Optional</param>
         /// <param name="excludeHealthyReports">Specifies if save an Application Insights event only for reports indicating an unhealthy status</param>
         /// <returns>The <see cref="IHealthChecksBuilder"/>.</returns></param>
         public static IHealthChecksBuilder AddApplicationInsightsPublisher(this IHealthChecksBuilder builder, string instrumentationKey = default, bool saveDetailedReport = false, bool excludeHealthyReports = false)

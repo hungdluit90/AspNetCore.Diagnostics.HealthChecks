@@ -83,7 +83,7 @@
     <HealthCheckSqlite>3.0.0</HealthCheckSqlite>
     <HealthCheckUri>3.0.0</HealthCheckUri>
     <HealthCheckRedis>3.0.0</HealthCheckRedis>
-    <HealthCheckRabbitMQ>3.0.0</HealthCheckRabbitMQ>
+    <HealthCheckRabbitMQ>3.0.1</HealthCheckRabbitMQ>
     <HealthCheckEventStore>3.0.0</HealthCheckEventStore>
     <HealthCheckElasticsearch>3.0.0</HealthCheckElasticsearch>
     <HealthCheckOracle>3.0.0</HealthCheckOracle>
@@ -91,7 +91,7 @@
     <HealthCheckMongoDB>3.0.1</HealthCheckMongoDB>
     <HealthCheckMySql>3.0.0</HealthCheckMySql>
     <HealthCheckKafka>3.0.0</HealthCheckKafka>
-    <HealthCheckSystem>3.0.0</HealthCheckSystem>
+    <HealthCheckSystem>3.0.3</HealthCheckSystem>
     <HealthCheckNetwork>3.0.1</HealthCheckNetwork>
     <HealthCheckDynamoDb>3.0.0</HealthCheckDynamoDb>
     <HealthCheckCosmosDb>3.0.0</HealthCheckCosmosDb>
@@ -100,9 +100,9 @@
     <HealthCheckHangfire>3.0.0</HealthCheckHangfire>
     <HealthCheckAzureServiceBus>3.0.0</HealthCheckAzureServiceBus>
     <HealthCheckConsul>3.0.0</HealthCheckConsul>
-    <HealthCheckUI>3.0.0</HealthCheckUI>
+    <HealthCheckUI>3.0.3</HealthCheckUI>
     <HealthCheckUIClient>3.0.0</HealthCheckUIClient>
-    <HealthCheckPublisherAppplicationInsights>3.0.0</HealthCheckPublisherAppplicationInsights>
+    <HealthCheckPublisherAppplicationInsights>3.0.1</HealthCheckPublisherAppplicationInsights>
     <HealthCheckPublisherDatadog>3.0.0</HealthCheckPublisherDatadog>
     <HealthCheckPublisherPrometheus>3.0.0</HealthCheckPublisherPrometheus>
     <HealthCheckAWSS3>3.0.0</HealthCheckAWSS3>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HealthChecks.Publisher.ApplicationInsights
 {
-    class ApplicationInsightsPublisher
+    internal class ApplicationInsightsPublisher
         : IHealthCheckPublisher
     {
         const string EVENT_NAME = "AspNetCoreHealthCheck";
@@ -18,9 +18,10 @@ namespace HealthChecks.Publisher.ApplicationInsights
         const string METRIC_DURATION_NAME = "AspNetCoreHealthCheckDuration";
         const string HEALTHCHECK_NAME = "AspNetCoreHealthCheckName";
 
-        private readonly string _instrumentationKey;
         private static TelemetryClient _client;
         private static readonly object sync_root = new object();
+
+        private readonly string _instrumentationKey;
         private readonly bool _saveDetailedReport;
         private readonly bool _excludeHealthyReports;
 
@@ -48,13 +49,31 @@ namespace HealthChecks.Publisher.ApplicationInsights
                 SaveGeneralizedReport(report, client);
             }
 
+
             return Task.CompletedTask;
         }
+
         private void SaveDetailedReport(HealthReport report, TelemetryClient client)
         {
             foreach (var reportEntry in report.Entries.Where(entry => !_excludeHealthyReports || entry.Value.Status != HealthStatus.Healthy))
             {
                 client.TrackEvent($"{EVENT_NAME}:{reportEntry.Key}",
+                    properties: new Dictionary<string, string>()
+                    {
+                        { nameof(Environment.MachineName), Environment.MachineName },
+                        { nameof(Assembly), Assembly.GetEntryAssembly().GetName().Name },
+                        { HEALTHCHECK_NAME, reportEntry.Key }
+                    },
+                    metrics: new Dictionary<string, double>()
+                    {
+                        { METRIC_STATUS_NAME, reportEntry.Value.Status == HealthStatus.Healthy ? 1 : 0 },
+                        { METRIC_DURATION_NAME, reportEntry.Value.Duration.TotalMilliseconds }
+                    });
+            }
+
+            foreach (var reportEntry in report.Entries.Where(entry => entry.Value.Exception != null))
+            {
+                client.TrackException(reportEntry.Value.Exception,
                     properties: new Dictionary<string, string>()
                     {
                         { nameof(Environment.MachineName), Environment.MachineName },
