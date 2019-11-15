@@ -1,2 +1,2 @@
 # The Docker image to run your workspace in. Defaults to gitpod/workspace-full
-image: mcr.microsoft.com/dotnet/core/sdk:3.0
+image: mcr.microsoft.com/dotnet/core/aspnet:3.0
